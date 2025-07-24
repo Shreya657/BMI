@@ -214,7 +214,7 @@
         /* Result Animation */
         .result {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            color: white;
+            color: black;
             padding: 25px;
             border-radius: 15px;
             margin: 25px 0;

@@ -11,7 +11,8 @@ const BMICalculator = () => {
        const [bmiVal,setBmiVal]=useState(null);
     const [loading,setLoading]=useState(false);
     const [message, setMessage] = useState("");
-
+      const [banger, setBanger] = useState("");
+      const [share,setShare]=useState(false);
 
 
     const calculateBMI=()=>{
@@ -33,9 +34,12 @@ const BMICalculator = () => {
          if (bmi < 18.5) {
     setType("Underweight 😕");
     setMessage("Eat some food! I'm concerned for you. Take care 🌸");
+    setShare(true);
   } else if (bmi < 25) {
     setType("Normal 😊");
-    setMessage("You slayed! 🔥 Keep it up champ 💪");
+    setMessage("You slayed! 🔥 Keep it up champ 💪 ");
+    setBanger("Now share this with those who body-shamed you for no reason. Burn their ass 🔥");
+     setShare(true);
   } else if (bmi < 30) {
     setType("Overweight 😬");
     setMessage("You’re cute but try going for a walk 😅");
@@ -59,23 +63,22 @@ const BMICalculator = () => {
     return "Obese 😟";
     }
   
-//   const quizLink='https://are-u-enterpenter-xndr.vercel.app/'
-// const shareText=`🏆Hey, I scored ${percentage}% on the Entrepreneur Mindset Quiz and earned the badge: "${badge}"! 
-// Check your score now at ${quizLink}`
+  const BmiLink='https://bmi-burner.vercel.app/'
+const shareText=`bitch, im healthy. but are you?? check yours 👉 ${BmiLink}`
 
-// const encodedText=encodeURIComponent(shareText);
-// const navigate=useNavigate();
+const encodedText=encodeURIComponent(shareText);
 
 
-// const shareLinks={
-//     whatsapp: `https://wa.me/?text=${encodedText}`,
-//     twitter: `https://twitter.com/intent/tweet?text=${encodedText}`,
+
+const shareLinks={
+    whatsapp: `https://wa.me/?text=${encodedText}`,
+    twitter: `https://twitter.com/intent/tweet?text=${encodedText}`,
    
-// }
+}
 
-// const handleShareClick=()=>{
-//     window.open(shareLinks.twitter,'_blank')
-// };
+const handleShareClick=()=>{
+    window.open(shareLinks.twitter,'_blank')
+};
 
   return (
     <div className='parent'>
@@ -97,20 +100,19 @@ const BMICalculator = () => {
             <><h4 style={{color: "black"}}>your BMI= {bmi}</h4>
                <h3 style={{color: "black"}}>your catagory is : {type}</h3>
                <h4 style={{color: "black"}}>{message}</h4>
+               <h5 style={{color: "black" ,paddingTop:"20px"}}>{banger}</h5>
             </>
         )
-     : null};
+     : null}
+ 
+{share && (
+  <>
+ <h4 style={{color: "black", fontSize:"15px" }} >Share on:</h4>
 
-
-    
-        <h4 style={{color: "black"}}>Now share this with those who body-shamed you for no reason. Burn their ass</h4>
-   
-
-
-   <h4>share on:</h4>
-        {/* <a href={shareLinks.whatsapp} target="_blank" rel="noreferrer">📱 WhatsApp</a> &nbsp;|&nbsp;
-        <a href={shareLinks.twitter} target="_blank" rel="noreferrer">🐦 X</a> &nbsp;|&nbsp;
-        <a href={shareLinks.linkedin} target="_blank" rel="noreferrer">💼 LinkedIn</a> &nbsp;|&nbsp;  */}
+    <a href={shareLinks.whatsapp} target="_blank" rel="noreferrer"  ><img style={{width:"25px", height:"25px"}} src="https://imgs.search.brave.com/_Yv9QJapYAaeUDQpj_Q0a8fCdNrcw90GYVXiQdlbltw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzE0Lzk5LzIzLzkw/LzM2MF9GXzE0OTky/MzkwMDBfdGJneE5J/am01RmFmamd2eTR2/bmEybmtHMDg4QzlT/dVYuanBn" alt="WhatsApp" /></a> &nbsp;&nbsp;
+    <a href={shareLinks.twitter} target="_blank" rel="noreferrer"><img style={{width:"25px", height:"25px"}} src="https://imgs.search.brave.com/pObWiIXiBY-cow6kKEpPvq-sxL8FX-AJ40XJ_6_2ik4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly92ZWN0/b3JzZWVrLmNvbS93/cC1jb250ZW50L3Vw/bG9hZHMvMjAyMy8w/Ny9Ud2l0dGVyLVgt/TG9nby1WZWN0b3It/MDEtMi5qcGc" alt="Twitter" /></a> &nbsp;&nbsp;
+  </>
+)}
     </div>
   )
 }

@@ -89,21 +89,21 @@ const BMICalculator = () => {
       <button onClick={calculateBMI}>Calculate</button>
     
         {loading ? (
-            <h4>calculating BMI...</h4>
+            <h4 style={{color: "black"}}>calculating BMI...</h4>
         )
         : bmi ?
         (
         
-            <><h4>your BMI= {bmi}</h4>
-               <h3>your catagory is : {type}</h3>
-               <h4>{message}</h4>
+            <><h4 style={{color: "black"}}>your BMI= {bmi}</h4>
+               <h3 style={{color: "black"}}>your catagory is : {type}</h3>
+               <h4 style={{color: "black"}}>{message}</h4>
             </>
         )
      : null};
 
 
     
-        <h4>Now share this with those who body-shamed you for no reason. Burn their ass</h4>
+        <h4 style={{color: "black"}}>Now share this with those who body-shamed you for no reason. Burn their ass</h4>
    
 
 

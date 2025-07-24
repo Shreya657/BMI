@@ -38,7 +38,7 @@ const BMICalculator = () => {
   } else if (bmi < 25) {
     setType("Normal 😊");
     setMessage("You slayed! 🔥 Keep it up champ 💪 ");
-    setBanger("Now share this with those who body-shamed you for no reason. Burn their ass 🔥");
+    setBanger("Now share this with those who body-shamed you for no reason & Burn their ass 🔥");
      setShare(true);
   } else if (bmi < 30) {
     setType("Overweight 😬");
@@ -97,7 +97,7 @@ const handleShareClick=()=>{
         : bmi ?
         (
         
-            <><h4 style={{color: "black"}}>your BMI= {bmi}</h4>
+            <><h3 style={{color: "black"}}>your BMI= {bmi}</h3>
                <h3 style={{color: "black"}}>your catagory is : {type}</h3>
                <h4 style={{color: "black"}}>{message}</h4>
                <h5 style={{color: "black" ,paddingTop:"20px"}}>{banger}</h5>
